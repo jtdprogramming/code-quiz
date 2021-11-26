@@ -14,9 +14,7 @@
 */
 
 :root {
-  --primary: #44e9ff;
-  --secondary: #497980;
-  --tertiary: rgb(192, 246, 253);
+  --primary: rgb(59, 59, 145);
   --grey: #333;
 }
 
@@ -26,10 +24,12 @@
 }
 
 body {
+  display: inline-block;
   margin: 1% 2%;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
     
 }
+
 
 .nav-container {
   display: block;
@@ -39,17 +39,36 @@ body {
   font-weight: bolder;
 }
 
-.container {
-overflow: auto;
-max-width: 50%;
-margin: auto;
-padding-top: 6em;
-text-align: left;
+.nav-container #timer {
+  color: yellowgreen;
 }
 
-.question-text {
-  font-style: italic;
+#time {
+  color: black;
 }
+
+.container {
+display: block;
+overflow: auto;
+margin: 0% 10% 2% 20%;
+padding-top: 6em;
+text-align: center;
+}
+
+.btn {
+  background: rgb(0, 0, 0);
+  color: white;
+  border: 2px dashed rgb(131, 133, 8);
+  margin-top: 5px;
+  border-radius: 50px;
+  padding: 15px 15px;
+  font-size: 30px;
+  min-width: 40rem;
+}
+
+
+
+
 
 /* utility */
 .float-left {
