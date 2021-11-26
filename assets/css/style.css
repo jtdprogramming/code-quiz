@@ -12,3 +12,51 @@
   Right/Wrong
 
 */
+
+:root {
+  --primary: #44e9ff;
+  --secondary: #497980;
+  --tertiary: rgb(192, 246, 253);
+  --grey: #333;
+}
+
+* {
+  background-color: rgb(150, 150, 150);
+  box-sizing: border-box;
+}
+
+body {
+  margin: 1% 2%;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+    
+}
+
+.nav-container {
+  display: block;
+  background-color: var(--grey);
+  font-size: larger;
+  color: blue;
+  font-weight: bolder;
+}
+
+.container {
+overflow: auto;
+max-width: 50%;
+margin: auto;
+padding-top: 6em;
+text-align: left;
+}
+
+.question-text {
+  font-style: italic;
+}
+
+/* utility */
+.float-left {
+  float: left;
+}
+
+.float-right {
+  float: right;
+}
+
