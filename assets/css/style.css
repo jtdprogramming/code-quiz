@@ -105,11 +105,32 @@ body {
 }
 
 .container {
-  justify-content: center;
-  display: block;
-  align-items: center;
+  /* justify-content: center; */
   width: 1000px;
   max-width: 70%;
   background-color: gray;
   text-align: center;
+  padding: 10 px;
+
+}
+
+/* reference https://www.w3schools.com/css/css_grid.asp */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(2,auto);    /*https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-columns*/
+  gap: 15px;
+  margin: 25px 0;
+}
+
+.btn {
+  background-color: orangered;
+
+}
+
+.btn:hover {
+  background-color: rgb(0, 102, 255);
+}
+
+.hide {
+  display: none;
 }
