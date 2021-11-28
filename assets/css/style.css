@@ -71,11 +71,35 @@ text-align: center;
 
 
 /* utility */
-.float-left {
+/* .float-left {
   float: left;
 }
 
 .float-right {
   float: right;
+} */
+
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+:root {
+  --primary-neutral: brown;
+  --secondary-wrong: 0;
+}
+
+/* center container */
+body {
+ 
+  align-items: center;
+  display: flex;
+
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+
+  
+}

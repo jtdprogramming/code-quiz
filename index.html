@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Code Quiz</title>
-  <!-- <link rel="stylesheet" href="./assets/css/style.css"> -->
+  <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
   
@@ -17,7 +17,7 @@
 
 
   <!--open page with quiz guidelines and enter name submit button to track high scores and start-quiz button that begins the quiz and timer functions-->
-  <div id="intro">
+  <!-- <div id="intro">
     <h1 id="">CODE<span id="subtext"> and other things </span> QUIZ</h1>
     <h2 id="headerInstructions">INSTRUCTIONS GO HERE</h2>
     <h2 id="headerText">Enter you name: </h2>
@@ -26,20 +26,32 @@
   <div>
     <input type="text" id="userName">
     <button onclick="startGame()">Begin Quiz</button>
+  </div> -->
+
+
+  <!-- container card for questions and answers -->
+  <div class="container">
+    <div id="question-container" class="hide"></div>
+      <div id="question">Question Goes Here</div>
+      <div id="answer-buttons" class="btn-grid">
+        <button class="btn">1</button>
+        <button class="btn">2</button>
+        <button class="btn">3</button>
+        <button class="btn">4</button>
+
+      </div>
+    <div class="controls">
+      <button id="start-btn" class="start-btn btn">Begin</button>
+      <button id="start-btn" class="next-btn btn hide">Next Question</button>
+
+    </div>
   </div>
 
-  <script>
-    let user = document.querySelector("#userName");
-    let headerText = document.querySelector("#headerText");
-
-    function startGame() {
-      headerInstructions.innerHTML = ""
-      headerText.innerHTML = ""
-    }
-
-
-
-  </script>
+  
+  
+  
+  
+  
 
 
 
