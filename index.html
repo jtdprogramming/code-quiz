@@ -5,9 +5,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Code Quiz</title>
-  <link rel="stylesheet" href="./assets/css/style.css">
+  <!-- <link rel="stylesheet" href="./assets/css/style.css"> -->
 </head>
-<br>
+<body>
   
   <!-- view high scores link and timer countdown -->
   <div class="nav-container">
@@ -16,27 +16,49 @@
   </div>
 
 
-  <!--open page with quiz guidelines and start-quiz button that begins the quiz and timer functions-->
-  <div class="container">
-    <h1 id="question" class="question-text">
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Hic dolore sed rerum qui quo quis
-      nisi excepturi dolorem enim, dignissimos iste cupiditate eos reprehenderit placeat nobis.
-      Voluptas necessitatibus error sint.
-    </h1>
-    
-    <div class="container btn-container">
-      <button class="btn" id="answer1" type="submit">1</button>
-      <button class="btn" id="answer2" type="submit">2</button>
-      <button class="btn" id="answer3" type="submit">3</button>
-      <button class="btn" id="answer4" type="submit">4</button></br></br>
-    </div>
-
+  <!--open page with quiz guidelines and enter name submit button to track high scores and start-quiz button that begins the quiz and timer functions-->
+  <div id="intro">
+    <h1 id="">CODE<span id="subtext"> and other things </span> QUIZ</h1>
+    <h2 id="headerInstructions">INSTRUCTIONS GO HERE</h2>
+    <h2 id="headerText">Enter you name: </h2>
+  </div>
+  
+  <div>
+    <input type="text" id="userName">
+    <button onclick="startGame()">Begin Quiz</button>
   </div>
 
+  <script>
+    let user = document.querySelector("#userName");
+    let headerText = document.querySelector("#headerText");
+
+    function startGame() {
+      headerInstructions.innerHTML = ""
+      headerText.innerHTML = ""
+    }
+
+
+
+  </script>
+
+
+
+<!-- style in html for functionality and rapid testing , make stylesheet when multi-monitor-->
+
+<style>
+  body {background-color: rgb(29, 7, 7)}
+  #intro {text-align: center; color: rgb(150, 150, 150)}
+
+</style>
+
+
+
   <!-- Container for question and 4 multiple choice buttons to have function fill with object data  -->
-
-  <!-- Game end shows score and submit name to store to local storage -->
-
+  
+  <!-- Game end shows score -->
+  
+  
+  <!--TODO: -->
   <!-- Right or Wrong message container -->
 
 
