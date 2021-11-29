@@ -14,8 +14,16 @@
   
   <!-- view high scores link and timer countdown -->
   <div class="nav-container">
-    <a href="#highscores" class="float-left" id="highscore-link">High Scores</a>
-    <span id="time" class="float-right">Time: <span id="timer">60</span></span>
+    <div id="highscore">
+      <a href="#highscores" class="float-left" id="highscore-link">High Scores</a>
+    </div>
+    <div id=time-container>    
+      <span id="time" class="float-right">Time: <span id="timer">60</span></span>
+    </div>  
+    <br>
+    <div class="score">
+      <span class="float-right">Score: <span id="score">0</span></span>
+    </div>
   </div>
   
 
@@ -33,47 +41,20 @@
   </div> -->
 
 
-  <!-- container card for questions and answers, populate  -->
+  <!-- container card for questions and answer buttons, populate with createElement-button and questions array  -->
   <div class="container">
     <div id="question-container" class="hide">
       <div id="question">Question Goes Here</div>
-      <div id="answer-buttons" class="grid-container">
-        <button class="btn">1</button>
-        <button class="btn">2</button>
-        <button class="btn">3</button>
-        <button class="btn">4</button>
-
+      <div id="answer-buttons" class="button-container">
+        <!-- use createElement to generate buttons with answer text from questions array -->
       </div>
     </div>
     <div class="controls">
       <button id="start-btn" class="start-btn btn">Begin</button>
-      <button id="start-btn" class="next-btn btn hide">Next Question</button>
+      <button id="next-btn" class="next-btn btn hide">Next Question</button>
 
     </div>
   </div>
-
-  
-  
-  
-  
-  
-
-
-
-<!-- style in html for functionality and rapid testing , make stylesheet when multi-monitor-->
-
-<style>
-  body {background-color: rgb(29, 7, 7)}
-  #intro {text-align: center; color: rgb(150, 150, 150)}
-
-</style>
-
-
-
-  <!-- Container for question and 4 multiple choice buttons to have function fill with object data  -->
-  
-  <!-- Game end shows score -->
-  
   
   <!--TODO: -->
   <!-- Right or Wrong message container -->
