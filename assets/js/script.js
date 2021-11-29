@@ -36,6 +36,8 @@ Title: question goes here and changes wit
 var questionContainerElement = document.getElementById('question-container') ;   //can use var, let, or const (and others) depending on data type
 var startButton = document.getElementById('start-btn');
 
+
+
 //click event listener used to capture button click, begins starGame function
 startButton.addEventListener('click', startGame)
 
@@ -51,18 +53,53 @@ function startGame() {
 
 
 
+function setNextQuestion() {
+  showQuestion
+}
 
+function selectAnswer() {
+
+}
 
 //create an object for questions to hold the values of the question and answers for the 
-//use [] to nest arrays of information with another array, utilize to keep code clean and organized
+//use [] to nest arrays of information within another array, utilize to keep code clean and organized
 var questions = [
   {
-    question: 'Does this javascript quiz work?',
-    answers: [
-      {text: 'Kinda', correct: false},
+    question: 'Does this javascript quiz work?',  //define the question
+    answers: [                                    //create an array of answers that holds answer-btn text correct: value
+      {text: 'Kinda', correct: false},            
       {text: 'No', correct: false},
       {text: 'Yes', correct: true},
       {text: 'Grapefruit', correct: false},
     ]
-  }
+  },
+  {
+    question: 'What is used to manipulate the styling of a website?',
+    answers: [
+      {text: 'TSA', correct: false},
+      {text: 'CSS', correct: true},
+      {text: 'MBA', correct: false},
+      {text: 'FBI', correct: false},
+    ]
+  },
+
+  {
+    question: 'What is the best Kurt Russel movie of all time? (hint: any)',
+    answers: [
+      {text: 'Big Trouble in Little China', correct: true},
+      {text: 'The Thing', correct: true},
+      {text: 'Escape from NY', correct: true},
+      {text: 'Escape from LA', correct: true},
+    ]
+  },
+  
+    {
+      question: 'What is var short for?',
+      answers: [
+        {text: 'Vary', correct: false},
+        {text: 'Varonica', correct: false},
+        {text: 'Variable', correct: true},
+        {text: 'Varnish', correct: false},
+      ]
+    }
 ]
