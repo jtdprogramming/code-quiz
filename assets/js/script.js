@@ -93,41 +93,11 @@ function selectAnswer(event) {
   var correct = selectedButton.dataset.correct
   setStatusClass(document.body, correct)
 
-  //array constructor runs child count
-  Array.from(answerButtonsElement.children).forEach(button => {
-    setStatusClass(button, button.dataset.correct)
-  })
-  if (shuffledQuestions.length > currentQuestionIndex + 1) {
-    nextButton.classList.remove('hide')
-  } else {
-    startButton.innerText = 'Restart'
-    startButton.classList.remove('hide')
-  }
-}
-
-//function to reset the answer containers
-function resetState () {
-  nextButton.classList.add('hide')
-  while (answerButtonsElement.firstChild) {
-    answerButtonsElement.removeChild(answerButtonsElement.firstChild)
-  }
-}
 
 
 
-// function setStatusClass(element, correct) {
-//   clearStatusClass(element)
-//   if (correct) {
-//     element.classList.add('correct')
-//   } else {
-//     element.classList.add('wrong')
-//   }
-// }
 
-// function clearStatusClass(element) {
-//   element.classList.remove('correct')
-//   element.classList.remove('wrong')
-// }
+
 */
 //==============================================================================
 
@@ -135,28 +105,7 @@ function resetState () {
 
 var startButton = document.getElementById('start-btn')
 var questionContainerElement = document.getElementById('question-container')
-
-//click event listener used to capture button click, calls starGame function
-startButton.addEventListener('click', startGame)
-  
-  
-  // function to start game, start countdown timer
-  function startGame() {
-    console.log('button test')
-    console.log(questions)
-
-    startButton.classList.add('hide')
-    
-    console.log('hidden button')
-    
-  
-}
-
-
-
-// function to load question and answers into buttons, check if answer is correct
-
-
+var answerButtonsElement = document.getElementById('answer-buttons'); //grabs buttons div
 
 //create an object for questions to hold the values of the question and answers for the 
 //use [] to nest arrays of information within another array, utilize to keep code clean and organized
@@ -200,3 +149,50 @@ var questions = [
       ]
     },
 ]
+
+//click event listener used to capture button click, calls starGame function
+startButton.addEventListener('click', startGame)
+  
+  
+  // function to start game, start countdown timer
+  //TODO: Timer countdown
+  function startGame() {
+    console.log('button test')
+    console.log(questions[0].answers)
+    console.log(questions)
+
+    startButton.classList.add('hide')    
+    console.log('hidden button')
+
+    setQuestion()
+}
+
+//create eventListener to check answer and remove time if the answer is not true**
+//add points to score if answer is true
+function setQuestion() {
+  
+  questionContainerElement.innerText = questions.question[0];
+  console.log(questionContainerElement.innerText)
+
+
+  // questions.answers.forEach(answers => {
+  //   var button = document.createElement('button')
+  //   button.innerText = answers.text
+  //   button.classList.add('btn')
+
+  //   if (answers.correct) {
+  //     button.dataset.correct = answers.correct;
+  //     score = score + 5;
+  //     console.log(score)
+
+  //   }
+  //     button.addEventListener('click', selectAnswer)
+  //   answerButtonsElement.appendChild(button)
+  // }
+  // ); 
+}
+
+// function to load question and answers into buttons, check if answer is correct
+
+
+
