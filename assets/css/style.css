@@ -5,22 +5,24 @@
 
 :root {
   /* define blanket values here */
+  background-color: darkslategray;
 }
 
 /* center content */
 body {
   align-items: center;
-  display: block;
+  display: flex;
   justify-content: center;
   margin: auto;
   padding: 0;
-  width: 1000px;
+  flex-direction: column;
   
 }
 
 .nav-container {
-  display: block;
+  display: flex;
   flex-flow: wrap;
+  flex-direction: column;
   align-items:stretch;
   background-color: var(--grey);
   font-size: larger;
@@ -48,10 +50,11 @@ body {
   justify-content: center;
   width: 1000px;
   max-width: 70%;
+  margin: 1% 2%;
   background-color: gray;
   text-align: center;
-  padding: 10 px;
   align-content: center;
+  flex-wrap: wrap;
 }
 
 #question {
@@ -77,6 +80,10 @@ body {
   align-items: center;
   justify-content: space-evenly;
 
+}
+
+#start-msg {
+  color: rgb(255, 255, 255);
 }
 
 /* used to change color on cursor hover over button  */

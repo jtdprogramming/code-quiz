@@ -18,21 +18,17 @@ youtube searches:
 docs:
   w3schools
   MDN
-
 /* 
-
 // var taskInfoEl = document.createElement("div");  *UTILITY - for creating elements - Taskinator
-
 //*UTILITY from Taskinator to prevent submit from refreshing page - use for name/initial submission or link to new page
 // var taskFormHandler = function(event) {
 //   event.preventDefault();
 //   var taskNameInput = document.querySelector("input[name='task-name'").value;
 //   var taskTypeInput = document.querySelector("select[name='task-type']").value;
-
 // ====================================================================================================
 */
 
-
+/*
 var questionContainerElement = document.getElementById('question-container') ;   //can use var, let, or const (and others) depending on data type
 var startButton = document.getElementById('start-btn');
 var nextButton = document.getElementById('next-btn');
@@ -90,10 +86,14 @@ function showQuestion(question) {
   ); 
 }
 
+
+// on answer select 
 function selectAnswer(event) {
   var selectedButton = event.target
   var correct = selectedButton.dataset.correct
   setStatusClass(document.body, correct)
+
+  //array constructor runs child count
   Array.from(answerButtonsElement.children).forEach(button => {
     setStatusClass(button, button.dataset.correct)
   })
@@ -113,19 +113,50 @@ function resetState () {
   }
 }
 
-function setStatusClass(element, correct) {
-  clearStatusClass(element)
-  if (correct) {
-    element.classList.add('correct')
-  } else {
-    element.classList.add('wrong')
-  }
+
+
+// function setStatusClass(element, correct) {
+//   clearStatusClass(element)
+//   if (correct) {
+//     element.classList.add('correct')
+//   } else {
+//     element.classList.add('wrong')
+//   }
+// }
+
+// function clearStatusClass(element) {
+//   element.classList.remove('correct')
+//   element.classList.remove('wrong')
+// }
+*/
+//==============================================================================
+
+
+
+var startButton = document.getElementById('start-btn')
+var questionContainerElement = document.getElementById('question-container')
+
+//click event listener used to capture button click, calls starGame function
+startButton.addEventListener('click', startGame)
+  
+  
+  // function to start game, start countdown timer
+  function startGame() {
+    console.log('button test')
+    console.log(questions)
+
+    startButton.classList.add('hide')
+    
+    console.log('hidden button')
+    
+  
 }
 
-function clearStatusClass(element) {
-  element.classList.remove('correct')
-  element.classList.remove('wrong')
-}
+
+
+// function to load question and answers into buttons, check if answer is correct
+
+
 
 //create an object for questions to hold the values of the question and answers for the 
 //use [] to nest arrays of information within another array, utilize to keep code clean and organized
@@ -168,14 +199,4 @@ var questions = [
         {text: 'Varnish', correct: false},
       ]
     },
-  
-    {
-      question: 'What is your favorite color?',
-      answers: [
-        {text: 'Vary', correct: false},
-        {text: 'Varonica', correct: false},
-        {text: 'Variable', correct: true},
-        {text: 'Varnish', correct: false},
-      ]
-    }
 ]

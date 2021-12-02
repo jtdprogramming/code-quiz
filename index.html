@@ -17,8 +17,9 @@
     <div id="highscore">
       <a href="#highscores" class="float-left" id="highscore-link">High Scores</a>
     </div>
+    <br>
     <div id=time-container>    
-      <span id="time" class="float-right">Time: <span id="timer">60</span></span>
+      <span id="time" class="float-right">Time: <span id="timer">30</span></span>
     </div>  
     <br>
     <div class="score">
@@ -43,14 +44,16 @@
 
   <!-- container card for questions and answer buttons, populate with createElement-button and questions array  -->
   <div class="container">
-    <div id="question-container" class="hide">
-      <div id="question">Question Goes Here</div>
+    <div id="question-container" >
+      <div id="question">Answer the questions correctly to gain points. Answer incorrectly and you lose 10 seconds. You have 30 seconds.</div>
       <div id="answer-buttons" class="button-container">
         <!-- use createElement to generate buttons with answer text from questions array -->
       </div>
     </div>
     <div class="controls">
       <button id="start-btn" class="start-btn btn">Begin</button>
+      <br>
+      <br>
       <button id="next-btn" class="next-btn btn hide">Next Question</button>
 
     </div>
