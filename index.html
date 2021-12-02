@@ -24,40 +24,28 @@
     </div>
   </div>
   
-
-<!-- **TODO: time permitting utilize separate html files for practice -->
-  <!--open page with quiz guidelines and enter name submit button to track high scores and start-quiz button that begins the quiz and timer functions-->
-  <!-- <div id="intro">
-    <h1 id="">CODE<span id="subtext"> and other things </span> QUIZ</h1>
-    <h2 id="headerInstructions">INSTRUCTIONS GO HERE</h2>
-    <h2 id="headerText">Enter you name: </h2>
-  </div>
-  
-  <div>
-    <input type="text" id="userName">
-    <button onclick="startGame()">Begin Quiz</button>
-  </div> -->
-
-
   <!-- container card for questions and answer buttons, populate with createElement-button and questions array  -->
   <div class="container">
     <div id="question-container" >
       <div id="question">Answer the questions correctly to gain points. Answer incorrectly and you lose 10 seconds. You have 30 seconds.</div>
-      <div id="answer-buttons" class="button-container">
-        <!-- use createElement to generate buttons with answer text from questions array -->
-      </div>
     </div>
+    <br>
+    <br>
     <div class="controls">
       <button id="start-btn" class="start-btn btn">Begin</button>
       <br>
+      <div id="quiz-answers" class="hide" >
+        <button class="answer-button btn"></button>
+        <button class="answer-button btn"></button>
+        <button class="answer-button btn"></button>
+        <button class="answer-button btn"></button>
+      </div>
       <br>
-      <button id="next-btn" class="next-btn btn hide">Next Question</button>
+      <div class="answer-msg"></div>
 
     </div>
   </div>
-  
-  <!--TODO: -->
-  <!-- Right or Wrong message container -->
+ 
 
   <!-- High Score -->
   

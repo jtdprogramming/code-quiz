@@ -29,26 +29,23 @@ docs:
 */
 
 var startButton = document.getElementById('start-btn')
-var questionContainerElement = document.getElementById('question-container')
-var answerButtonsElement = document.getElementById('answer-buttons') //grabs buttons div
-var currentQuestionIndex = 0;
+var questionContainerEl = document.getElementById('question-container')
+var answerButton = document.getElementsByClassName('answer-button') //grabs buttons div
+var quizAnswers = document.getElementById('quiz-answers')
+var answerMessage = document.getElementsByClassName('answer-msg')
+var currentQuestionIndex = 0
+var score = 0
 
 
-//click event listener used to capture button click, calls starGame function
-startButton.addEventListener('click', startGame)
   
   
   // function to start game, start countdown timer
   //TODO: Timer countdown
   function startGame() {
-    // console.log('button test')
     // console.log(questions[currentQuestionIndex].answers, questions[currentQuestionIndex].answers)
-    // console.log(questions)
-    
-
-    startButton.classList.add('hide')    
-    console.log('hidden button')
-
+    startButton.classList.add('hide') 
+    quizAnswers.classList.remove('hide')  
+  
     setQuestion()
 }
 
@@ -56,30 +53,29 @@ startButton.addEventListener('click', startGame)
 //add points to score if answer is true
 function setQuestion() {
   
-  questionContainerElement.innerText = questions[currentQuestionIndex].question
-  currentQuestionIndex++
-  console.log(currentQuestionIndex)
+  //set question from array 
+  questionContainerEl.innerText = questions[currentQuestionIndex].question
+  
+  //set answers
+  answerButton[0].textContent = questions[currentQuestionIndex].answers[0];
+  answerButton[1].textContent = questions[currentQuestionIndex].answers[1];
+  answerButton[2].textContent = questions[currentQuestionIndex].answers[2];
+  answerButton[3].textContent = questions[currentQuestionIndex].answers[3];
 
-  questions.an {
-    var button = document.createElement('button')
-    button.innerText = answer.text
-    button.classList.add('btn')
+  //capture button click and check answer
+  for (i = 0; i < answerButton.length; i++) {
+    answerButton[i].addEventListener('click', checkAnswer);
   }
-  );
 }
 
+function checkAnswer(e) {
+  //check if button click is the correct answer by comparing .textContent
+  if (e.target.textContent === questions[currentQuestionIndex].answer){
+    // if correct display "correct" message for a second
+    answerMessage.textContent = "Correct"
+  }
+}
 
-  //   if (answer.correct) {
-  //     button.dataset.correct = answer.correct;
-  //     score = score + 5;
-  //     console.log(score)
-
-  //   }
-  //     button.addEventListener('click', selectAnswer)
-  // }
-
-
-// function to load question and answers into buttons, check if answer is correct
 
 
 //create an object for questions to hold the values of the question and answers for the 
@@ -109,3 +105,6 @@ var questions = [
       answer: "Variable"      
     },
 ]
+
+//click event listener used to capture button click, calls starGame function
+startButton.addEventListener('click', startGame)

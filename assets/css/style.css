@@ -57,12 +57,14 @@ body {
   align-content: center;
   flex-wrap: wrap;
   font-weight: bolder;
-
+  flex-direction: column;
+  align-items: center;
 }
 
-#question {
+#question-container {
   font-weight: bolder;
   font-size: 25px;
+  display: flex;
 }
 
 /* reference https://www.w3schools.com/css/css_grid.asp */
@@ -77,11 +79,14 @@ body {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-  background-color: orangered;
+  background-color: rgba(255, 68, 0, 0.555);
   margin: 10px;
   min-width: 10vw;
   align-items: center;
   justify-content: space-evenly;
+  min-width: 25em;
+  min-height: 5em;
+  font-size: medium;
 
 }
 
@@ -91,7 +96,9 @@ body {
 
 /* used to change color on cursor hover over button  */
 .btn:hover {
-  background-color: rgb(0, 102, 255);
+  background-color: rgb(107, 0, 0);
+  color: white;
+  font-weight: bold;
 }
 
 .hide {
