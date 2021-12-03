@@ -29,58 +29,17 @@ docs:
 */
 
 var startButton = document.getElementById('start-btn')
-var questionContainerEl = document.getElementById('question-container')
+var questionContainer = document.getElementById('question-container')
 var answerButton = document.getElementsByClassName('answer-button') //grabs buttons div
 var quizAnswers = document.getElementById('quiz-answers')
-var answerMessage = document.getElementsByClassName('answer-msg')
+var answerMessage = document.getElementById('answer-msg')
+var timerDisplay = document.getElementById('timer')
+var scoreDisplay = document.getElementById('score')
 var currentQuestionIndex = 0
 var score = 0
+var timerCount = 0
+var timerInterval = false
 
-
-  
-  
-  // function to start game, start countdown timer
-  //TODO: Timer countdown
-  function startGame() {
-    // console.log(questions[currentQuestionIndex].answers, questions[currentQuestionIndex].answers)
-    startButton.classList.add('hide') 
-    quizAnswers.classList.remove('hide')  
-  
-    setQuestion()
-}
-
-//create eventListener to check answer and remove time if the answer is not true**
-//add points to score if answer is true
-function setQuestion() {
-  
-  //set question from array 
-  questionContainerEl.innerText = questions[currentQuestionIndex].question
-  
-  //set answers
-  answerButton[0].textContent = questions[currentQuestionIndex].answers[0];
-  answerButton[1].textContent = questions[currentQuestionIndex].answers[1];
-  answerButton[2].textContent = questions[currentQuestionIndex].answers[2];
-  answerButton[3].textContent = questions[currentQuestionIndex].answers[3];
-
-  //capture button click and check answer
-  for (i = 0; i < answerButton.length; i++) {
-    answerButton[i].addEventListener('click', checkAnswer);
-  }
-}
-
-function checkAnswer(e) {
-  //check if button click is the correct answer by comparing .textContent
-  if (e.target.textContent === questions[currentQuestionIndex].answer){
-    // if correct display "correct" message for a second
-    answerMessage.textContent = "Correct"
-  }
-}
-
-
-
-//create an object for questions to hold the values of the question and answers for the 
-//use [] to nest arrays of information within another array, utilize to keep code clean and organized
-//questions array -> can be saved as separate file to reference in html TODO*
 var questions = [
   {
     question: 'Does this javascript quiz work?',  //define the question
@@ -94,17 +53,150 @@ var questions = [
   },
 
   {
-    question: "What is the best Kurt Russel movie of all time? (hint: any)",
+    question: "What is the best Kurt Russel movie of all time?",
     answers: ["Big Trouble in Little China", "The Thing", "Escape from NY", "Escape from LA"],
-    answer: ["Big Trouble in Little China", "The Thing", "Escape from NY", "Escape from LA"]
+    answer: "Big Trouble in Little China"
   },
   
     {
       question: "What is var short for?",
       answers: ["Vary", "Varonica", "Variable", "Varnish"],
       answer: "Variable"      
-    },
+    }
 ]
+
+
+quizAnswers.classList.add('hide')
+  
+  
+  // function to start game, start countdown timer
+  //TODO: Timer countdown
+  function startGame() {
+    startButton.classList.add('hide') 
+    quizAnswers.classList.remove('hide')  
+
+    timerCount = 30
+    timerDisplay.textContent = timer
+    
+    timerStart()
+    setQuestion()
+}
+
+
+//create eventListener to check answer and remove time if the answer is not true**
+//add points to score if answer is true
+function setQuestion() {
+  console.log(currentQuestionIndex)
+  
+   //set question from array 
+  questionContainer.innerText = questions[currentQuestionIndex].question
+  
+  //set answers
+  answerButton[0].textContent = questions[currentQuestionIndex].answers[0];
+  answerButton[1].textContent = questions[currentQuestionIndex].answers[1];
+  answerButton[2].textContent = questions[currentQuestionIndex].answers[2];
+  answerButton[3].textContent = questions[currentQuestionIndex].answers[3];
+
+  //capture button click and check answer
+  for (i = 0; i < answerButton.length; i++) {
+    answerButton[i].addEventListener('click', checkAnswer);
+  }
+
+
+}
+
+
+//Check answer
+function checkAnswer(event) {
+  console.log("question number: " + currentQuestionIndex)
+  
+  //check if button click is the correct answer by comparing .textContent
+  if (event.target.textContent === questions[currentQuestionIndex].answer){
+    
+    answerMessage.textContent = 'Correct'
+    currentQuestionIndex++;
+    score = score + 5;
+    
+    
+    console.log("user score: " + score)
+    //Display "Correct" for a second then 
+    setTimeout(function() {
+      answerMessage.style.display = 'none';
+    }, 1000);
+
+    
+
+    //check if any questions left 
+    if (currentQuestionIndex === questions.length){
+      endGame()
+    } else {
+      setQuestion()
+    }
+  } 
+  
+  else {
+    currentQuestionIndex++;
+    answerMessage.textContent = "Wrong"
+
+    
+    setTimeout(function() {
+      answerMessage.style.display = 'none';
+    }, 1000);
+    
+    if (timerCount < 10) {
+      timerCount -= 10;
+      endGame();
+
+  
+  } else if (currentQuestionIndex === 4) {
+      endGame();
+
+  } else {
+      timerCount -= 5;
+      setQuestion()
+  }
+  }
+}
+  
+
+
+function endGame() {
+  //hide answer buttons
+  
+  quizAnswers.style.display = 'none' 
+  
+  if (timerCount <= 0) {
+    questionContainer.innerText = 'Time is up!'
+} else {
+    questionContainer.innerText = "Well Done, you scored: " + score + " points!"
+}
+
+}
+
+function timerStart() {   
+  timerInterval = setInterval(function() {
+      timerCount --;
+      timer.textContent = timerCount;
+
+      if (timerCount < 1) {
+          timer.textContent = 0;
+          endGame();
+          clearInterval(timerInterval);
+      };
+
+      
+      if (currentQuestionIndex === 4) {
+          timer.textContent = timerCount;
+          clearInterval(timerInterval);
+      }
+  }, 1000)
+}
+
+
+//create an object for questions to hold the values of the question and answers for the 
+//use [] to nest arrays of information within another array, utilize to keep code clean and organized
+//questions array -> can be saved as separate file to reference in html TODO*
+
 
 //click event listener used to capture button click, calls starGame function
 startButton.addEventListener('click', startGame)
