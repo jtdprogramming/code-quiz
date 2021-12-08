@@ -35,7 +35,7 @@ var quizAnswers = document.getElementById('quiz-answers')
 var answerMessage = document.getElementById('answer-msg')
 var timerDisplay = document.getElementById('timer')
 var scoreDisplay = document.getElementById('score')
-var submitScore = document.getElementsByClassName('score-container')
+// var submitScore = document.getElementsById('score-container')
 var timeContainer = document.getElementById('time-container')
 var currentQuestionIndex = 0
 var score = 0
@@ -170,13 +170,14 @@ function endGame() {
   
   quizAnswers.style.display = 'none' 
   timeContainer.style.display = 'none'
-  submitScore.classList.remove('hide')
+  // submitScore.classList.remove('hide')
   
   if (timerCount <= 0) {
     questionContainer.innerText = 'Time is up, game over'
     // highScore()
 } else {
     questionContainer.innerText = "Well Done, you scored: " + score + " points, with " + timerCount + " seconds left!"
+    + "Your score is: " + (score + timerCount) + " points."
     // highScore()
 }
 
