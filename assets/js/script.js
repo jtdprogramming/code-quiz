@@ -35,6 +35,8 @@ var quizAnswers = document.getElementById('quiz-answers')
 var answerMessage = document.getElementById('answer-msg')
 var timerDisplay = document.getElementById('timer')
 var scoreDisplay = document.getElementById('score')
+var submitScore = document.getElementsByClassName('score-container')
+var timeContainer = document.getElementById('time-container')
 var currentQuestionIndex = 0
 var score = 0
 var timerCount = 0
@@ -87,6 +89,9 @@ quizAnswers.classList.add('hide')
 //add points to score if answer is true
 function setQuestion() {
   console.log(currentQuestionIndex)
+  console.log(score)
+
+  answerMessage.textContent = '';
   
    //set question from array 
   questionContainer.innerText = questions[currentQuestionIndex].question
@@ -152,7 +157,7 @@ function checkAnswer(event) {
       endGame();
 
   } else {
-      timerCount -= 5;
+      timerCount -= 10;
       setQuestion()
   }
   }
@@ -164,11 +169,15 @@ function endGame() {
   //hide answer buttons
   
   quizAnswers.style.display = 'none' 
+  timeContainer.style.display = 'none'
+  submitScore.classList.remove('hide')
   
   if (timerCount <= 0) {
-    questionContainer.innerText = 'Time is up!'
+    questionContainer.innerText = 'Time is up, game over'
+    // highScore()
 } else {
-    questionContainer.innerText = "Well Done, you scored: " + score + " points!"
+    questionContainer.innerText = "Well Done, you scored: " + score + " points, with " + timerCount + " seconds left!"
+    // highScore()
 }
 
 }
@@ -192,6 +201,10 @@ function timerStart() {
   }, 1000)
 }
 
+function highScore() {
+  console.log("User high score is: " + (score + timerCount) + "!")
+}
+
 
 //create an object for questions to hold the values of the question and answers for the 
 //use [] to nest arrays of information within another array, utilize to keep code clean and organized
@@ -200,3 +213,6 @@ function timerStart() {
 
 //click event listener used to capture button click, calls starGame function
 startButton.addEventListener('click', startGame)
+
+
+//TODO: HIGHSCORE NAME INPUT AND RELOCATE END MESSAGE TO CORRECT FUNCTION FOR DISPLAY

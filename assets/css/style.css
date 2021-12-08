@@ -87,8 +87,17 @@ body {
   min-width: 25em;
   min-height: 5em;
   font-size: medium;
-  
+}
 
+.submit-btn {
+  color: black;
+  border: black;
+}
+
+.submit-btn:hover{
+  background-color: rgb(107, 0, 0);
+  color: white;
+  font-weight: bold;
 }
 
 #start-msg {
