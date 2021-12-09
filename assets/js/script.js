@@ -1,4 +1,5 @@
 /* Goals: 
+**REFACTOR FOR READABILITY AND UPDATE LOGIC AS THE COURSE CONTINUES**
 - Create a quiz game that begins after selecting the "start quiz" button.
 - On "start quiz" click, a timer begins counting down
   > if it reaches 0 the game ends; if the user answers all the questions, the game ends
@@ -7,7 +8,6 @@
   > if incorrect answer chosen briefly display "wrong" in the foot message container 
 =======================================================
 - Heavily comment use of javascript for personal studies and future refactoring project
-- Use codepen.io to rapid test code before pushing code
 =======================================================
 JS Reference material and tutorials:
 youtube searches:
