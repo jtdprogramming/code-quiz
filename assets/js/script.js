@@ -35,12 +35,16 @@ var quizAnswers = document.getElementById('quiz-answers')
 var answerMessage = document.getElementById('answer-msg')
 var timerDisplay = document.getElementById('timer')
 var scoreDisplay = document.getElementById('score')
-// var submitScore = document.getElementsById('score-container')
+var submitScore = document.getElementById('score-container')
 var timeContainer = document.getElementById('time-container')
+var highScoreBtn = document.getElementsByClassName('score-submit')
 var currentQuestionIndex = 0
+var name =''
 var score = 0
 var timerCount = 0
 var timerInterval = false
+
+var highScores = []
 
 var questions = [
   {
@@ -69,13 +73,21 @@ var questions = [
 
 
 quizAnswers.classList.add('hide')
-  
-  
+
+submitScore.onsubmit = (e) => {
+  e.preventDefault();
+  var scoreObject = {score: score +timerCount, name: submitScore.name.value}
+  highScores.push(scoreObject)
+  console.log(scoreObject)  
+}  
+
+
   // function to start game, start countdown timer
   //TODO: Timer countdown
   function startGame() {
     startButton.classList.add('hide') 
     quizAnswers.classList.remove('hide')  
+    timeContainer.classList.remove('hide')
 
     timerCount = 30
     timerDisplay.textContent = 30
@@ -173,12 +185,15 @@ function endGame() {
   // submitScore.classList.remove('hide')
   
   if (timerCount <= 0) {
-    questionContainer.innerText = 'Time is up, game over'
+    questionContainer.innerText = "Time is up. You scored " + (score + timerCount)
     // highScore()
 } else {
     questionContainer.innerText = "You scored " + score + " points, with " + timerCount + " seconds left for a score of " + (score + timerCount) + " points."
     // highScore()
 }
+highScores.push(score + timerCount)
+submitScore.classList.remove("hide")
+
 
 }
 
@@ -203,6 +218,8 @@ function timerStart() {
 
 function highScore() {
   console.log("User high score is: " + (score + timerCount) + "!")
+  console.log (highScores)
+
 }
 
 

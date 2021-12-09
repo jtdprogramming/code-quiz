@@ -11,12 +11,12 @@
   
   <!-- view high scores link and timer countdown -->
   <div class="nav-container">
-    <div id="highscore">
-      <a href="#highscores" class="float-left" id="highscore-link">High Scores</a>
-    </div>
+    <!-- <div id="highscore">
+      <a href="#highscores" id="highscore-link">High Scores</a>
+    </div> -->
     <br>
-    <div id="time-container">    
-      <span id="time" class="float-right">Time: <span id="timer">30</span></span>
+    <div id="time-container" class="hide">    
+      <span id="time">Time: <span id="timer">30</span></span>
     </div>  
     <br>
     <!-- <div class="scoreDisplay">
@@ -47,12 +47,14 @@
   </div>
  
 
-  <!-- High Score -->
-  <div id="score-container" class="score-submit hide">
+   <!-- High Score -->
+
+  <form id="score-container" class="score-submit hide">
     <input type="text" name="name" placeholder="Enter Your Name" />
     <button class="submit-btn" id="save-task" type="submit">Submit Name to High Scores</button>
-  </div>
+  </form>
   
+
 
   <script src ="./assets/js/script.js"></script>
 </body>
