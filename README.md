@@ -4,12 +4,12 @@
 
 [Code-Quiz-Repository](https://github.com/jtdprogramming/code-quiz)
 
-screenshot here
+![Code-Quiz]
 * * *
 
 ## About
 
-The objective is to create a quiz game which will ask several multiple choice questions. Once the game has ended either by answering all the questions or the timer running out, the user may save and view their high scores.
+The objective is to create a quiz game which will ask several multiple choice questions. Once the game has ended either by answering all the questions or the timer running out, the user may enter their name and view their high scores from local storage.
 
 * * *
 

@@ -73,12 +73,16 @@ var questions = [
 
 
 quizAnswers.classList.add('hide')
+submitScore.classList.add("hide")
 
+//submit name, score and name into scoreObject for local storage
 submitScore.onsubmit = (e) => {
   e.preventDefault();
   var scoreObject = {score: score +timerCount, name: submitScore.name.value}
   highScores.push(scoreObject)
-  console.log(scoreObject)  
+  // console.log(scoreObject) 
+  window.localStorage.setItem('highScores', JSON.stringify(highScores)); 
+  saveHighScore(highScores)
 }  
 
 
@@ -191,8 +195,9 @@ function endGame() {
     questionContainer.innerText = "You scored " + score + " points, with " + timerCount + " seconds left for a score of " + (score + timerCount) + " points."
     // highScore()
 }
-highScores.push(score + timerCount)
+// highScores.push(score + timerCount)
 submitScore.classList.remove("hide")
+
 
 
 }
@@ -216,20 +221,21 @@ function timerStart() {
   }, 1000)
 }
 
-function highScore() {
-  console.log("User high score is: " + (score + timerCount) + "!")
+function saveHighScore() {
+  // console.log("User high score is: " + (score + timerCount) + "!")
+  submitScore.classList.add("hide")
   console.log (highScores)
 
 }
 
 
-//create an object for questions to hold the values of the question and answers for the 
-//use [] to nest arrays of information within another array, utilize to keep code clean and organized
-//questions array -> can be saved as separate file to reference in html TODO*
-
 
 //click event listener used to capture button click, calls starGame function
 startButton.addEventListener('click', startGame)
 
-
-//TODO: HIGHSCORE NAME INPUT AND RELOCATE END MESSAGE TO CORRECT FUNCTION FOR DISPLAY
+/* TODO:
+- right/wrong message
+- highscores list
+  > reset list 
+- retry quiz
+*/
