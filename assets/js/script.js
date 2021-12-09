@@ -78,7 +78,7 @@ quizAnswers.classList.add('hide')
     quizAnswers.classList.remove('hide')  
 
     timerCount = 30
-    timerDisplay.textContent = timer
+    timerDisplay.textContent = 30
     
     timerStart()
     setQuestion()
@@ -176,8 +176,7 @@ function endGame() {
     questionContainer.innerText = 'Time is up, game over'
     // highScore()
 } else {
-    questionContainer.innerText = "Well Done, you scored: " + score + " points, with " + timerCount + " seconds left!"
-    + "Your score is: " + (score + timerCount) + " points."
+    questionContainer.innerText = "You scored " + score + " points, with " + timerCount + " seconds left for a score of " + (score + timerCount) + " points."
     // highScore()
 }
 

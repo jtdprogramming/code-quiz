@@ -23,7 +23,7 @@ body {
   display: flex;
   flex-flow: wrap;
   flex-direction: column;
-  align-items:stretch;
+  align-items: flex-start;
   background-color: var(--grey);
   font-size: larger;
   color: rgb(0, 0, 0);
