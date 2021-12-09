@@ -4,7 +4,7 @@
 
 [Code-Quiz-Repository](https://github.com/jtdprogramming/code-quiz)
 
-![Code-Quiz]
+![Code-Quiz](https://github.com/jtdprogramming/code-quiz/blob/main/assets/images/code-quiz-screenshot.jpg)
 * * *
 
 ## About
